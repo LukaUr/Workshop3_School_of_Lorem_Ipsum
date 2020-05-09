@@ -1,4 +1,4 @@
-package Utils;
+package pl.coderslab.model.utils;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -7,9 +7,9 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class DbUtil {
+public class DBUtil {
     private static DataSource dataSource;
-    public static Connection getConnection() throws SQLException {
+    public static Connection connect() throws SQLException {
         return getInstance().getConnection();   }
     private static DataSource getInstance() {
         if (dataSource == null) {
