@@ -1,12 +1,14 @@
 package pl.coderslab.model;
 
-import pl.coderslab.model.utils.DBUtil;
+import pl.coderslab.utils.DBUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class UsersGroupDao {
     private static final String CREATE_USERSGROUP_QUERY =
@@ -74,16 +76,16 @@ public class UsersGroupDao {
         }
     }
 
-    public UsersGroup[] findAllUsersGroups() {
+    public List<UsersGroup> findAllUsersGroups() {
         try (Connection connection = DBUtil.connect()) {
             PreparedStatement preS = connection.prepareStatement(FIND_ALL_USERSGROUPS_QUERY);
             ResultSet rs = preS.executeQuery();
-            UsersGroup[] allUsersGroups = new UsersGroup[0];
+            List<UsersGroup> allUsersGroups = new ArrayList<>();
             while (rs.next()) {
                 UsersGroup tmp = new UsersGroup();
                 tmp.setId(rs.getInt("id"));
                 tmp.setName(rs.getString("name"));
-                allUsersGroups = addUsersGroupToArray(tmp, allUsersGroups);
+                allUsersGroups.add(tmp);
             }
             return allUsersGroups;
         } catch (SQLException e) {

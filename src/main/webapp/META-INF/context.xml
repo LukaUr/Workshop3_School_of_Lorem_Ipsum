@@ -6,7 +6,7 @@
               username="root"
               password="coderslab"
               driverClassName="com.mysql.cj.jdbc.Driver"
-              connectionProperties="useUnicode=yes;characterEncoding=utf8;"
+              connectionProperties="useUnicode=yes;characterEncoding=utf8;serverTimezone=UTC;"
               url="jdbc:mysql://localhost:3306/Workshop3_school"
               maxTotal="100"
               maxIdle="30"

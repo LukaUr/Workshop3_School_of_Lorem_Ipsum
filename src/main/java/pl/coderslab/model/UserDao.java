@@ -1,6 +1,6 @@
 package pl.coderslab.model;
 
-import pl.coderslab.model.utils.DBUtil;
+import pl.coderslab.utils.DBUtil;
 
 import java.sql.*;
 import java.util.Arrays;

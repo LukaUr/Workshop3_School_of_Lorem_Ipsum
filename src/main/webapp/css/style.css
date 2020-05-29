@@ -1,0 +1,170 @@
+:root {
+    --white-warm: #ffffee;
+    --light-01: #dddddd;
+    --light-02: #bbbbbb;
+    --warm-grey: #666660;
+    --dark-02: #444444;
+    --dark-01: #333333;
+    --menu-dark-red: #551111;
+    --menu-soft-red: #883333;
+    --menu-light-red: #aa5555;
+    --font-standard: 16px;
+    --font-larger: 24px;
+    color: var(--dark-01);
+    font-family: sans-serif;
+    font-size: var(--font-standard);
+}
+
+body {
+    background-color: var(--white-warm);
+    padding: 0;
+}
+
+#menu {
+    background-color: var(--menu-dark-red);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#menu > hr {
+    border: var(--menu-soft-red) 1px solid;
+    margin: 0 0 10px;
+}
+
+footer {
+    color: var(--light-02);
+    background-color: var(--dark-02);
+    padding: 15px 15px 50px;
+    text-align: center;
+}
+
+footer div {
+    background-color: var(--light-02);
+    padding: 20px 15px;
+}
+
+div {
+    background-color: var(--white-warm);
+}
+
+.container {
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 10px 15px;
+    border: var(--light-02) 1px solid;
+    min-height: 500px;
+}
+
+table {
+    background-color: var(--warm-grey);
+    margin: 15px 15px 15px 0;
+    border: none;
+
+}
+
+tr:nth-of-type(even) {
+    background-color: var(--white-warm);
+}
+
+tr:nth-of-type(odd) {
+    background-color: var(--light-01);
+}
+
+th {
+    background-color: var(--light-02);
+    padding: 5px 10px;
+}
+
+td {
+    padding: 5px 10px;
+    color: var(--dark-01);
+}
+
+hr {
+    margin: 20px 0 0;
+    border: var(--light-02) 1px solid;
+}
+
+.button {
+    font-size: var(--font-standard);
+    border-radius: 5px;
+    border: none;
+    padding: 3px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 4px 4px 0;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.button:hover {
+    transition: 0.1s;
+}
+
+.red {
+    padding: 6px 20px;
+    background-color: var(--menu-soft-red);
+    color: var(--light-01);
+}
+
+.red:hover {
+    color: var(--dark-01);
+    background-color: var(--menu-light-red);
+}
+
+.grey {
+    background-color: var(--warm-grey);
+    color: var(--light-01);
+    font-weight: normal;
+}
+
+.grey:hover {
+    background-color: var(--dark-02);
+    color: var(--light-01);
+}
+
+.link {
+    color: var(--menu-dark-red);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link:hover {
+    text-decoration: underline;
+    color: var(--menu-soft-red);
+}
+
+h2 {
+    font-size: var(--font-larger);
+    font-weight: bold;
+}
+
+.distancer {
+    height: 50px;
+    width: 50px;
+    background-color: inherit;
+}
+
+.largedistancer {
+    height: 200px;
+    width: 150px;
+    background-color: inherit;
+}
+
+#contact {
+    width: 300px;
+    height: 50px;
+    background-color: var(--warm-grey);
+    color: var(--light-02);
+    font-weight: bold;
+    text-align: left;
+}
+
+#logo {
+    color: var(--menu-light-red);
+    font-size: 30px;
+    font-weight: bold;
+    background-color: inherit;
+    padding: 15px 5px 15px 0;
+}

@@ -1,5 +1,7 @@
 package pl.coderslab.model;
 
+import pl.coderslab.utils.AppConfig;
+
 public class UsersGroup {
     private int id;
     private String name;
@@ -26,4 +28,5 @@ public class UsersGroup {
     public void setName(String name) {
         this.name = name;
     }
+
 }
