@@ -30,7 +30,7 @@
                 <td>${group.name}</td>
                 <td><a href="/app/group/details?id=${group.id}" class="link">Details</a></td>
                 <td><a href="/app/group/delete?id=${group.id}" class="link">Delete</a></td>
-                <td><a href="/app/group/edit?id=${group.id}" class="link">Change name</a></td>
+                <td><a href="/app/group/update?id=${group.id}" class="link">Change name</a></td>
             </tr>
         </c:forEach>
     </table>
