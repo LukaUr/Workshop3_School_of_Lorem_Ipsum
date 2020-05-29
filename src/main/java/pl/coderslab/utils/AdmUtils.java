@@ -2,6 +2,7 @@ package pl.coderslab.utils;
 
 import pl.coderslab.model.*;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class AdmUtils {
@@ -109,8 +110,8 @@ public class AdmUtils {
     public static boolean checkGroupOnDelete(int id) {
         if (checkGroupId(id)) {
             UserDao dao = new UserDao();
-            User[] users = dao.findAllUsersByGroupId(id);
-            if (users.length == 0) {
+            List<User> users = dao.findAllUsersByGroupId(id);
+            if (users.size() == 0) {
                 return true;
             }
             System.out.println("Unable to delete group. Group is not empty.");

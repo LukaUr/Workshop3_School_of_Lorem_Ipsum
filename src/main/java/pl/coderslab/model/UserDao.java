@@ -3,7 +3,9 @@ package pl.coderslab.model;
 import pl.coderslab.utils.DBUtil;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class UserDao {
     private static final String CREATE_USER_QUERY =
@@ -108,15 +110,15 @@ public class UserDao {
         return null;
     }
 
-    public User[] findAllUsersByGroupId(int groupId) {
+    public List<User> findAllUsersByGroupId(int groupId) {
         try (Connection connection = DBUtil.connect()) {
             PreparedStatement preS = connection.prepareStatement(FIND_ALL_USERS_BY_GROUPID_QUERY);
             preS.setInt(1, groupId);
             ResultSet rs = preS.executeQuery();
-            User[] allUsers = new User[0];
+            List<User> allUsers = new ArrayList<>();
             while (rs.next()) {
                 User user = getUserData(rs);
-                allUsers = addUsersToArray(user, allUsers);
+                allUsers.add(user);
             }
             return allUsers;
         } catch (SQLException e) {

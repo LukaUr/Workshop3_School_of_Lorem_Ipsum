@@ -20,14 +20,16 @@
     <br>
     <table class="groups">
         <tr>
-            <th>Id</th>
+            <th>No</th>
             <th>Name</th>
+            <th>Id</th>
             <th colspan="3">Actions</th>
         </tr>
-        <c:forEach items="${groups}" var="group">
+        <c:forEach items="${groups}" var="group" varStatus="status">
             <tr>
-                <td>${group.id}</td>
-                <td>${group.name}</td>
+                <td>${status.count}</td>
+                <td><c:out value="${group.name}"/></td>
+                <td><c:out value="${group.id}"/></td>
                 <td><a href="/app/group/details?id=${group.id}" class="link">Details</a></td>
                 <td><a href="/app/group/delete?id=${group.id}" class="link">Delete</a></td>
                 <td><a href="/app/group/update?id=${group.id}" class="link">Change name</a></td>

@@ -8,12 +8,11 @@
 <body>
 <%@include file="../../fragments/header.jsp" %>
 <div class="container">
-
     <div class="distancer"></div>
     <p>You are changing the name of this group</p>
     <p>
-        group id: ${group.id}<br>
-        group name: ${group.name}
+        group id: <span class="bold"> <c:out value="${group.id}"/></span><br>
+        group name: <span class="bold"> <c:out value="${group.name}"/></span>
     </p>
     <hr>
     <div class="distancer"></div>
@@ -32,7 +31,6 @@
     <p>
         <a href="/app/group/groups" class="button grey">Back</a>
     </p>
-
 </div>
 <%@include file="../../fragments/footer.jsp" %>
 </body>

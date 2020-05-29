@@ -11,8 +11,8 @@
     <div class="distancer"></div>
     <p>You are about to delete this group</p>
     <p>
-        group id: ${group.id}<br>
-        group name: ${group.name}
+        group id: <span class="bold"> <c:out value="${group.id}"/></span><br>
+        group name: <span class="bold"> <c:out value="${group.name}"/></span>
     </p>
     <p><span class="bold">Are you sure?</span></p>
     <form method="post" action="/app/group/delete">
