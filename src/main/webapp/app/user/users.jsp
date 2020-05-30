@@ -19,7 +19,7 @@
             <th>Email</th>
             <th>User Id</th>
             <th>Group Id</th>
-            <th>Actions</th>
+            <th colspan="2">Actions</th>
         </tr>
         <c:forEach items="${users}" var="user" varStatus="status">
             <tr>
@@ -27,8 +27,14 @@
                 <td><c:out value="${user.userName}"/></td>
                 <td><c:out value="${user.email}"/></td>
                 <td><c:out value="${user.id}"/></td>
-                <td><c:out value="${user.user_group_id}"/></td>
+                <c:forEach var="group" items="${groups}">
+                    <c:if test="${group.id == user.user_group_id}">
+                        <c:set var="groupName" value="${group.name}"/>
+                    </c:if>
+                </c:forEach>
+                <td><c:out value="${groupName}"/></td>
                 <td><a href="/app/user/details" class="link">Details</a></td>
+                <td><a href="/app/user/delete?id=${user.id}" class="link">Delete</a></td>
             </tr>
         </c:forEach>
     </table>

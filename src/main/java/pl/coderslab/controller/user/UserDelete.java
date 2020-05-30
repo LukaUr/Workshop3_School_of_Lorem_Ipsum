@@ -11,22 +11,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet("/app/user/users")
-public class UsersShow extends HttpServlet {
+@WebServlet("/app/user/delete")
+public class UserDelete extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        int userId = Integer.parseInt(request.getParameter("id"));
+        UserDao dao = new UserDao();
+        dao.deleteUser(userId);
+        response.sendRedirect("/app/user/users");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        int userId = Integer.parseInt(request.getParameter("id"));
         UserDao dao = new UserDao();
-        List<User> users = dao.findAllUsers();
-        request.setAttribute("users", users);
+        User user = dao.readUser(userId);
+        request.setAttribute("user", user);
         UsersGroupDao groupdao = new UsersGroupDao();
-        List<UsersGroup> groups = groupdao.findAllUsersGroups();
-        request.setAttribute("groups", groups);
-        getServletContext().getRequestDispatcher("/app/user/users.jsp").forward(request, response);
+        UsersGroup group = groupdao.readUsersGroup(user.getUser_group_id());
+        request.setAttribute("group", group);
+        getServletContext().getRequestDispatcher("/app/user/deleteUser.jsp").forward(request, response);
     }
 }
