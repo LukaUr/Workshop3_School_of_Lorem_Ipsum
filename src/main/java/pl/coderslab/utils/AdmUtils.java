@@ -37,7 +37,7 @@ public class AdmUtils {
         String email = u.getEmail();
         int userId = u.getId();
         UserDao userDao = new UserDao();
-        User[] users = userDao.findAllUsers();
+        List<User> users = userDao.findAllUsers();
         for (User user : users) {
             if (user.getEmail().equals(email) && user.getId() != userId) {
                 System.out.println("User with this email already exists");

@@ -94,14 +94,14 @@ public class UserDao {
         }
     }
 
-    public User[] findAllUsers() {
+    public List<User> findAllUsers() {
         try (Connection connection = DBUtil.connect()) {
             PreparedStatement preS = connection.prepareStatement(FIND_ALL_USERS_QUERY);
             ResultSet rs = preS.executeQuery();
-            User[] allUsers = new User[0];
+            List<User> allUsers = new ArrayList<>();
             while (rs.next()) {
                 User user = getUserData(rs);
-                allUsers = addUsersToArray(user, allUsers);
+                allUsers.add(user);
             }
             return allUsers;
         } catch (SQLException e) {
