@@ -9,6 +9,9 @@ import java.sql.SQLException;
 import java.util.Arrays;
 
 public class SolutionDao {
+
+    public static final SolutionDao dao = new SolutionDao();
+
     private static final String CREATE_SOLUTION_QUERY =
             "INSERT INTO solutions(created, updated, description, exercise_id, user_id) VALUES (NOW(), ?, ?, ?, ?)";
     private static final String READ_SOLUTION_QUERY =

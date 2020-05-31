@@ -2,8 +2,8 @@ package pl.coderslab.controller.user;
 
 import pl.coderslab.model.User;
 import pl.coderslab.model.UserDao;
-import pl.coderslab.model.UsersGroup;
-import pl.coderslab.model.UsersGroupDao;
+import pl.coderslab.model.Group;
+import pl.coderslab.model.GroupDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,13 +20,8 @@ public class UsersShow extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        UserDao dao = new UserDao();
-        List<User> users = dao.findAllUsers();
+        List<User> users = UserDao.dao.findAllUsers();
         request.setAttribute("users", users);
-        UsersGroupDao groupdao = new UsersGroupDao();
-        List<UsersGroup> groups = groupdao.findAllUsersGroups();
-        request.setAttribute("groups", groups);
         getServletContext().getRequestDispatcher("/app/user/users.jsp").forward(request, response);
     }
 }

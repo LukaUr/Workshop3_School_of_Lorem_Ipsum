@@ -9,6 +9,9 @@ import java.sql.SQLException;
 import java.util.Arrays;
 
 public class ExerciseDao {
+
+    public static final ExerciseDao dao = new ExerciseDao();
+
     private static final String CREATE_EXERCISE_QUERY =
             "INSERT INTO exercises(title, description) VALUES (?, ?)";
     private static final String READ_EXERCISE_QUERY =

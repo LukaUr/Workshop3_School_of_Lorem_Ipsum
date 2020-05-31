@@ -1,7 +1,7 @@
 package pl.coderslab.controller;
 
-import pl.coderslab.model.UsersGroup;
-import pl.coderslab.model.UsersGroupDao;
+import pl.coderslab.model.Group;
+import pl.coderslab.model.GroupDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,8 +18,8 @@ public class DaoTestServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UsersGroupDao dao = new UsersGroupDao();
-        List<UsersGroup> allUsersGroups = dao.findAllUsersGroups();
+        GroupDao dao = new GroupDao();
+        List<Group> allUsersGroups = dao.findAllUsersGroups();
         request.setAttribute("groups", allUsersGroups);
         getServletContext().getRequestDispatcher("/groups.jsp").forward(request, response);
     }

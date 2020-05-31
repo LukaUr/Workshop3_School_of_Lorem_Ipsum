@@ -23,7 +23,7 @@
         <c:forEach items="${users}" var="user" varStatus="status">
             <tr>
                 <td>${status.count}</td>
-                <td><c:out value="${user.userName}"/></td>
+                <td><c:out value="${user.name}"/></td>
                 <td><c:out value="${user.email}"/></td>
                 <td><c:out value="${user.id}"/></td>
                 <td><a href="/app/user/details?id=${user.id}" class="link">Details</a></td>

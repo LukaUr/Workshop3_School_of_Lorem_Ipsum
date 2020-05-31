@@ -2,8 +2,8 @@ package pl.coderslab.controller.user;
 
 import pl.coderslab.model.User;
 import pl.coderslab.model.UserDao;
-import pl.coderslab.model.UsersGroup;
-import pl.coderslab.model.UsersGroupDao;
+import pl.coderslab.model.Group;
+import pl.coderslab.model.GroupDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,18 +16,15 @@ import java.io.IOException;
 public class UserDelete extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int userId = Integer.parseInt(request.getParameter("id"));
-        UserDao dao = new UserDao();
-        dao.deleteUser(userId);
+        UserDao.dao.deleteUser(userId);
         response.sendRedirect("/app/user/users");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int userId = Integer.parseInt(request.getParameter("id"));
-        UserDao dao = new UserDao();
-        User user = dao.readUser(userId);
+        User user = UserDao.dao.readUser(userId);
         request.setAttribute("user", user);
-        UsersGroupDao groupdao = new UsersGroupDao();
-        UsersGroup group = groupdao.readUsersGroup(user.getUser_group_id());
+        Group group = GroupDao.dao.readUsersGroup(user.getGroupId());
         request.setAttribute("group", group);
         getServletContext().getRequestDispatcher("/app/user/deleteUser.jsp").forward(request, response);
     }

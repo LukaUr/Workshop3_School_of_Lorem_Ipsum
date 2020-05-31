@@ -2,15 +2,16 @@ package pl.coderslab.model;
 
 import pl.coderslab.utils.DBUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javax.swing.*;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class UsersGroupDao {
+public class GroupDao {
+
+    public static final GroupDao dao = new GroupDao();
+
     private static final String CREATE_USERSGROUP_QUERY =
             "INSERT INTO users_groups(name) VALUES (?)";
     private static final String READ_USERSGROUP_QUERY =
@@ -22,7 +23,7 @@ public class UsersGroupDao {
     private static final String FIND_ALL_USERSGROUPS_QUERY =
             "SELECT * FROM users_groups";
 
-    public UsersGroup createUserGroup(UsersGroup usersGroup) {
+    public Group createUserGroup(Group usersGroup) {
         try (Connection connection = DBUtil.connect()) {
             PreparedStatement preS = connection.prepareStatement(CREATE_USERSGROUP_QUERY, PreparedStatement.RETURN_GENERATED_KEYS);
             preS.setString(1, usersGroup.getName());
@@ -38,13 +39,13 @@ public class UsersGroupDao {
         return null;
     }
 
-    public UsersGroup readUsersGroup(int usersGroupId) {
+    public Group readUsersGroup(int usersGroupId) {
         try (Connection connection = DBUtil.connect()) {
             PreparedStatement preS = connection.prepareStatement(READ_USERSGROUP_QUERY);
             preS.setInt(1, usersGroupId);
             ResultSet rs = preS.executeQuery();
             if (rs.next()) {
-                UsersGroup usersGroup = new UsersGroup();
+                Group usersGroup = new Group();
                 usersGroup.setId(usersGroupId);
                 usersGroup.setName(rs.getString("name"));
                 return usersGroup;
@@ -55,7 +56,7 @@ public class UsersGroupDao {
         return null;
     }
 
-    public void updateUsersGroup(UsersGroup usersGroup) {
+    public void updateUsersGroup(Group usersGroup) {
         try (Connection connection = DBUtil.connect()) {
             PreparedStatement preS = connection.prepareStatement(UPDATE_USERSGROUP_QUERY);
             preS.setString(1, usersGroup.getName());
@@ -71,18 +72,20 @@ public class UsersGroupDao {
             PreparedStatement preS = connection.prepareStatement(DELETE_USERSGROUP_QUERY);
             preS.setInt(1, usersGroupId);
             preS.executeUpdate();
+        } catch (SQLIntegrityConstraintViolationException e){
+            JOptionPane.showMessageDialog(null, "Remove all users from group before deleting it", "Group is not empty", JOptionPane.WARNING_MESSAGE);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public List<UsersGroup> findAllUsersGroups() {
+    public List<Group> findAllUsersGroups() {
         try (Connection connection = DBUtil.connect()) {
             PreparedStatement preS = connection.prepareStatement(FIND_ALL_USERSGROUPS_QUERY);
             ResultSet rs = preS.executeQuery();
-            List<UsersGroup> allUsersGroups = new ArrayList<>();
+            List<Group> allUsersGroups = new ArrayList<>();
             while (rs.next()) {
-                UsersGroup tmp = new UsersGroup();
+                Group tmp = new Group();
                 tmp.setId(rs.getInt("id"));
                 tmp.setName(rs.getString("name"));
                 allUsersGroups.add(tmp);
@@ -94,8 +97,8 @@ public class UsersGroupDao {
         return null;
     }
 
-    private UsersGroup[] addUsersGroupToArray(UsersGroup usersGroup, UsersGroup[] allUsersGroups) {
-        UsersGroup[] result = Arrays.copyOf(allUsersGroups, allUsersGroups.length + 1);
+    private Group[] addUsersGroupToArray(Group usersGroup, Group[] allUsersGroups) {
+        Group[] result = Arrays.copyOf(allUsersGroups, allUsersGroups.length + 1);
         result[allUsersGroups.length] = usersGroup;
         return result;
     }

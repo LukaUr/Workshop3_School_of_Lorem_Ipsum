@@ -2,14 +2,14 @@ package pl.coderslab.model;
 
 import pl.coderslab.utils.AppConfig;
 
-public class UsersGroup {
+public class Group {
     private int id;
     private String name;
 
-    public UsersGroup() {
+    public Group() {
     }
 
-    public UsersGroup(String name) {
+    public Group(String name) {
         this.name = name;
     }
 

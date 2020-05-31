@@ -1,7 +1,7 @@
 package pl.coderslab.controller.group;
 
-import pl.coderslab.model.UsersGroup;
-import pl.coderslab.model.UsersGroupDao;
+import pl.coderslab.model.Group;
+import pl.coderslab.model.GroupDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,18 +15,16 @@ public class GroupUpdate extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int groupId = Integer.parseInt(request.getParameter("id"));
         String groupName = request.getParameter("groupName");
-        UsersGroup group = new UsersGroup();
+        Group group = new Group();
         group.setId(groupId);
         group.setName(groupName);
-        UsersGroupDao dao = new UsersGroupDao();
-        dao.updateUsersGroup(group);
+        GroupDao.dao.updateUsersGroup(group);
         response.sendRedirect("/app/group/groups");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int groupId = Integer.parseInt(request.getParameter("id"));
-        UsersGroupDao dao = new UsersGroupDao();
-        UsersGroup group = dao.readUsersGroup(groupId);
+        Group group = GroupDao.dao.readUsersGroup(groupId);
         request.setAttribute("group", group);
         getServletContext().getRequestDispatcher("/app/group/editGroup.jsp").forward(request, response);
     }

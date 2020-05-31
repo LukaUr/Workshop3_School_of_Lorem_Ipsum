@@ -1,7 +1,7 @@
 package pl.coderslab.controller.group;
 
-import pl.coderslab.model.UsersGroup;
-import pl.coderslab.model.UsersGroupDao;
+import pl.coderslab.model.Group;
+import pl.coderslab.model.GroupDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,11 +13,10 @@ import java.io.IOException;
 @WebServlet("/app/group/add")
 public class GroupAdd extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UsersGroupDao dao = new UsersGroupDao();
-        UsersGroup newGroup = new UsersGroup();
+        Group newGroup = new Group();
         String groupName = request.getParameter("groupName");
         newGroup.setName(groupName);
-        dao.createUserGroup(newGroup);
+        GroupDao.dao.createUserGroup(newGroup);
         response.sendRedirect("/app/group/groups");
     }
 

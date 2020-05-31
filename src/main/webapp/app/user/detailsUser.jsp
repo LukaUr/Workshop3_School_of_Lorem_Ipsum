@@ -9,12 +9,12 @@
 <%@include file="../../fragments/header.jsp" %>
 <div class="container">
 
-    <h2><span class="lighter">User name:</span> <c:out value="${user.userName}"/></h2>
+    <h2><span class="lighter">User name:</span> <c:out value="${user.name}"/></h2>
     <p>id: <c:out value="${user.id}"/></p>
     <p>email: <c:out value="${user.email}"/></p>
     <br>
-    <p>group: <c:out value="${group.name}"/></p>
-    <p>group id: <c:out value="${group.id}"/></p>
+    <p>group: <c:out value="${user.groupName}"/></p>
+    <p>group id: <c:out value="${user.groupId}"/></p>
     <hr>
     <br>
 

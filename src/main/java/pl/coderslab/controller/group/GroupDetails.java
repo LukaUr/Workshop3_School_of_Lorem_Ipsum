@@ -2,8 +2,8 @@ package pl.coderslab.controller.group;
 
 import pl.coderslab.model.User;
 import pl.coderslab.model.UserDao;
-import pl.coderslab.model.UsersGroup;
-import pl.coderslab.model.UsersGroupDao;
+import pl.coderslab.model.Group;
+import pl.coderslab.model.GroupDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,10 +21,8 @@ public class GroupDetails extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int groupId = Integer.parseInt(request.getParameter("id"));
-        UsersGroupDao groupDao = new UsersGroupDao();
-        UsersGroup group = groupDao.readUsersGroup(groupId);
-        UserDao dao = new UserDao();
-        List<User> users = dao.findAllUsersByGroupId(groupId);
+        Group group = GroupDao.dao.readUsersGroup(groupId);
+        List<User> users = UserDao.dao.findAllUsersByGroupId(groupId);
         request.setAttribute("users", users);
         request.setAttribute("group", group);
         getServletContext().getRequestDispatcher("/app/group/groupDetails.jsp").forward(request, response);

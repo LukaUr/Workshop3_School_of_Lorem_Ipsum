@@ -13,9 +13,9 @@
     <p>You are about to delete this user</p>
     <p>
         user id: <span class="bold"> <c:out value="${user.id}"/></span><br>
-        user name: <span class="bold"> <c:out value="${user.userName}"/></span><br>
+        user name: <span class="bold"> <c:out value="${user.name}"/></span><br>
         user email: <span class="bold"> <c:out value="${user.email}"/></span><br>
-        group: <span class="bold"> <c:out value="${group.name}"/></span>
+        group: <span class="bold"> <c:out value="${user.groupName}"/></span>
     </p>
     <p><span class="bold">Are you sure?</span></p>
     <form method="post" action="/app/user/delete">

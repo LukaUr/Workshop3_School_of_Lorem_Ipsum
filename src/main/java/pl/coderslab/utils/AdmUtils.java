@@ -24,8 +24,7 @@ public class AdmUtils {
     }
 
     public static boolean checkUserId(int userId) {
-        UserDao userDao = new UserDao();
-        User user = userDao.readUser(userId);
+        User user = UserDao.dao.readUser(userId);
         if (user != null) {
             return true;
         }
@@ -36,8 +35,7 @@ public class AdmUtils {
     public static boolean checkUserEmail(User u) {
         String email = u.getEmail();
         int userId = u.getId();
-        UserDao userDao = new UserDao();
-        List<User> users = userDao.findAllUsers();
+        List<User> users = UserDao.dao.findAllUsers();
         for (User user : users) {
             if (user.getEmail().equals(email) && user.getId() != userId) {
                 System.out.println("User with this email already exists");
@@ -48,8 +46,7 @@ public class AdmUtils {
     }
 
     public static boolean checkGroupId(int groupId) {
-        UsersGroupDao usersGroupDao = new UsersGroupDao();
-        UsersGroup group = usersGroupDao.readUsersGroup(groupId);
+        Group group = GroupDao.dao.readUsersGroup(groupId);
         if (group != null) {
             return true;
         }
@@ -59,13 +56,13 @@ public class AdmUtils {
 
     public static boolean checkUser(User user) {
         boolean test1 = checkUserEmail(user);
-        boolean test2 = checkGroupId(user.getUser_group_id());
+        boolean test2 = checkGroupId(user.getGroupId());
         return (test1 && test2);
     }
 
     public static boolean checkExerciseId(int id) {
-        ExerciseDao dao = new ExerciseDao();
-        Exercise exercise = dao.readExercise(id);
+
+        Exercise exercise = ExerciseDao.dao.readExercise(id);
         if (exercise != null) {
             return true;
         }
@@ -74,8 +71,7 @@ public class AdmUtils {
     }
 
     public static boolean checkSolutionId(int id, int userId) {
-        SolutionDao dao = new SolutionDao();
-        Solution solution = dao.readSolution(id);
+        Solution solution = SolutionDao.dao.readSolution(id);
         if (solution != null && solution.getUserID() == userId) {
             return true;
         }
@@ -85,8 +81,7 @@ public class AdmUtils {
 
     public static boolean checkUserOnDelete(int id) {
         if (checkUserId(id)) {
-            SolutionDao dao = new SolutionDao();
-            Solution[] solutions = dao.findAllByUserId(id);
+            Solution[] solutions = SolutionDao.dao.findAllByUserId(id);
             if (solutions.length == 0) {
                 return true;
             }
@@ -97,8 +92,7 @@ public class AdmUtils {
 
     public static boolean checkExerciseOnDelete(int id) {
         if (checkExerciseId(id)) {
-            SolutionDao dao = new SolutionDao();
-            Solution[] solutions = dao.findAllByExerciseId(id);
+            Solution[] solutions = SolutionDao.dao.findAllByExerciseId(id);
             if (solutions.length == 0) {
                 return true;
             }
@@ -109,8 +103,7 @@ public class AdmUtils {
 
     public static boolean checkGroupOnDelete(int id) {
         if (checkGroupId(id)) {
-            UserDao dao = new UserDao();
-            List<User> users = dao.findAllUsersByGroupId(id);
+            List<User> users = UserDao.dao.findAllUsersByGroupId(id);
             if (users.size() == 0) {
                 return true;
             }
@@ -120,8 +113,7 @@ public class AdmUtils {
     }
 
     public static boolean checkSolutionOnDelete(int id){
-        SolutionDao dao = new SolutionDao();
-        Solution solution = dao.readSolution(id);
+        Solution solution = SolutionDao.dao.readSolution(id);
         if (solution != null) {
             return true;
         }

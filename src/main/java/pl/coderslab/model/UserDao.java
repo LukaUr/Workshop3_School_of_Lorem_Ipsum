@@ -8,6 +8,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class UserDao {
+
+    public static final UserDao dao = new UserDao();
+
     private static final String CREATE_USER_QUERY =
             "INSERT INTO users(username, email, password, user_group_id) VALUES (?, ?, ?, ?)";
     private static final String READ_USER_QUERY =
@@ -136,17 +139,18 @@ public class UserDao {
     private User getUserData(ResultSet rs) throws SQLException {
         User user = new User();
         user.setId(rs.getInt("id"));
-        user.setUserName(rs.getString("username"));
+        user.setName(rs.getString("username"));
         user.setEmail(rs.getString("email"));
         user.setPassword(rs.getString("password"));
-        user.setUser_group_id(rs.getInt("user_group_id"));
+        user.setGroupId(rs.getInt("user_group_id"));
+        user.setGroupName(GroupDao.dao.readUsersGroup(rs.getInt("user_group_id")).getName());
         return user;
     }
 
     private PreparedStatement setUserData(PreparedStatement preS, User user) throws SQLException {
-        preS.setString(1, user.getUserName());
+        preS.setString(1, user.getName());
         preS.setString(2, user.getEmail());
-        preS.setInt(4, user.getUser_group_id());
+        preS.setInt(4, user.getGroupId());
         return preS;
     }
 

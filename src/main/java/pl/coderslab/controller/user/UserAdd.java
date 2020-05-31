@@ -2,8 +2,8 @@ package pl.coderslab.controller.user;
 
 import pl.coderslab.model.User;
 import pl.coderslab.model.UserDao;
-import pl.coderslab.model.UsersGroup;
-import pl.coderslab.model.UsersGroupDao;
+import pl.coderslab.model.Group;
+import pl.coderslab.model.GroupDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,15 +21,13 @@ public class UserAdd extends HttpServlet {
         String password = request.getParameter("password");
         int groupId = Integer.parseInt(request.getParameter("groupId"));
         User user = new User(userName, email, password, groupId);
-        UserDao dao = new UserDao();
-        user = dao.createUser(user);
+        UserDao.dao.createUser(user);
         response.sendRedirect("/app/user/users");
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UsersGroupDao dao = new UsersGroupDao();
-        List<UsersGroup> groups = dao.findAllUsersGroups();
+        List<Group> groups = GroupDao.dao.findAllUsersGroups();
         request.setAttribute("groups", groups);
         getServletContext().getRequestDispatcher("/app/user/addUser.jsp").forward(request, response);
     }
