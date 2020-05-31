@@ -1,4 +1,4 @@
-package pl.coderslab.controller;
+package pl.coderslab.controller.exercise;
 
 import pl.coderslab.model.*;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/exercises")
+@WebServlet("/app/exercise/exercises")
 public class ShowExercises extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -18,8 +18,12 @@ public class ShowExercises extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ExerciseDao dao = new ExerciseDao();
         Exercise[] allExercises = dao.findAllExercises();
+        for (Exercise exercise : allExercises) {
+            if(exercise.getDescription().length() > 50)
+            exercise.setDescription(exercise.getDescription().substring(0, 47) + "...");
+        }
         request.setAttribute("exercises", allExercises);
-        getServletContext().getRequestDispatcher("/exercises.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/app/exercise/exercises.jsp").forward(request, response);
     }
 }
 
