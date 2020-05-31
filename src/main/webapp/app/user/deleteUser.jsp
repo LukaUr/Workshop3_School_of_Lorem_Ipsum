@@ -21,7 +21,7 @@
     <form method="post" action="/app/user/delete">
         <input type="number" value="${user.id}" name="id" hidden>
         <input type="submit" class="button grey" value="Yes"/>
-        <a href="/app/user/details" class="button grey">No</a>
+        <a href="javascript:history.back()" class="button grey">No</a>
     </form>
 
 

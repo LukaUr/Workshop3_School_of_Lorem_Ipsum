@@ -44,7 +44,7 @@
     <div class="distancer"></div>
     <hr>
     <p>
-        <a href="/app/group/groups" class="button grey">Back</a>
+        <a href="javascript:history.back()" class="button grey">Back</a>
     </p>
 
 </div>

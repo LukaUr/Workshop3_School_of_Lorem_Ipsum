@@ -18,7 +18,7 @@
     <form method="post" action="/app/group/delete">
         <input type="number" value="${group.id}" name="id" hidden>
         <input type="submit" class="button grey" value="Yes"/>
-        <a href="/app/group/groups" class="button grey">No</a>
+        <a href="javascript:history.back()" class="button grey">No</a>
     </form>
 
 

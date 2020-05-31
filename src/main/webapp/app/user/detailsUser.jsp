@@ -17,7 +17,7 @@
     <p>group id: <c:out value="${user.groupId}"/></p>
     <hr>
     <br>
-
+    <a href="javascript:history.back()" class="button grey">Back</a>
 </div>
 <%@include file="../../fragments/footer.jsp" %>
 </body>

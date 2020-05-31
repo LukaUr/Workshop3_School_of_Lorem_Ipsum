@@ -41,6 +41,7 @@
     <div>
         <p>
             <a href="/app/group/add" class="button grey">Add group</a>
+            <a href="javascript:history.back()" class="button grey">Back</a>
         </p>
     </div>
 </div>
