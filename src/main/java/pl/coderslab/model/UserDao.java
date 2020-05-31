@@ -2,6 +2,7 @@ package pl.coderslab.model;
 
 import pl.coderslab.utils.DBUtil;
 
+import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -82,6 +83,8 @@ public class UserDao {
             preS.setString(3, verifyPassword(connection, user));
             preS.setInt(5, user.getId());
             preS.executeUpdate();
+        } catch (SQLIntegrityConstraintViolationException e) {
+            JOptionPane.showMessageDialog(null, "Email address is already in use by one of the users. \nNew user data was not saved.", "Email address already in use", JOptionPane.WARNING_MESSAGE);
         } catch (SQLException e) {
             e.printStackTrace();
         }
