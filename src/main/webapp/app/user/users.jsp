@@ -33,7 +33,7 @@
                     </c:if>
                 </c:forEach>
                 <td><c:out value="${groupName}"/></td>
-                <td><a href="/app/user/details" class="link">Details</a></td>
+                <td><a href="/app/user/details?id=${user.id}" class="link">Details</a></td>
                 <td><a href="/app/user/delete?id=${user.id}" class="link">Delete</a></td>
             </tr>
         </c:forEach>

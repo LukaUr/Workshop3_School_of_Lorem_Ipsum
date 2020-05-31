@@ -18,6 +18,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Id</th>
+            <th colspan="2">Actions</th>
         </tr>
         <c:forEach items="${users}" var="user" varStatus="status">
             <tr>
@@ -25,6 +26,8 @@
                 <td><c:out value="${user.userName}"/></td>
                 <td><c:out value="${user.email}"/></td>
                 <td><c:out value="${user.id}"/></td>
+                <td><a href="/app/user/details?id=${user.id}" class="link">Details</a></td>
+                <td><a href="/app/user/delete?id=${user.id}" class="link">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
