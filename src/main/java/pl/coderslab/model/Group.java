@@ -1,7 +1,5 @@
 package pl.coderslab.model;
 
-import pl.coderslab.utils.AppConfig;
-
 public class Group {
     private int id;
     private String name;

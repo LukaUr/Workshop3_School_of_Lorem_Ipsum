@@ -2,8 +2,6 @@ package pl.coderslab.controller.user;
 
 import pl.coderslab.model.User;
 import pl.coderslab.model.UserDao;
-import pl.coderslab.model.Group;
-import pl.coderslab.model.GroupDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
