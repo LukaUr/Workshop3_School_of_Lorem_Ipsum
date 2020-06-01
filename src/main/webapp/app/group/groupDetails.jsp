@@ -41,6 +41,8 @@
     <hr>
     <div>
         <p>
+            <a href="/app/group/delete?id=${group.id}" class="button grey">Delete</a>
+            <a href="/app/group/update?id=${group.id}" class="button grey">Change name</a>
             <a href="javascript:history.back()" class="button grey">Back</a>
         </p>
     </div>

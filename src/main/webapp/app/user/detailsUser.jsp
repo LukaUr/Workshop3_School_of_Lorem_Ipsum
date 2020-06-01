@@ -16,8 +16,13 @@
     <p>group: <c:out value="${user.groupName}"/></p>
     <p>group id: <c:out value="${user.groupId}"/></p>
     <hr>
-    <br>
-    <a href="javascript:history.back()" class="button grey">Back</a>
+    <div>
+        <p>
+            <a href="/app/user/delete?id=${user.id}" class="button grey">Delete</a>
+            <a href="/app/user/edit?id=${user.id}" class="button grey">Edit</a>
+            <a href="javascript:history.back()" class="button grey">Back</a>
+        </p>
+    </div>
 </div>
 <%@include file="../../fragments/footer.jsp" %>
 </body>
