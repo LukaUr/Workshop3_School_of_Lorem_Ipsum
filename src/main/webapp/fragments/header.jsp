@@ -2,8 +2,11 @@
 <div id="menu">
     <div id="logo">School of Lorem Ipsum</div>
     <hr>
-    <a href="/" class="red button">Main Page</a>
-    <a href="/app/group/groups" class="button red">Groups</a>
-    <a href="/app/user/users" class="button red">Users</a>
-    <a href="/app/exercise/exercises" class="button red">Exercises</a>
+    <nav>
+        <a href="/" class="red button">Main Page</a>
+        <a href="/app/group/groups" class="button red">Groups</a>
+        <a href="/app/user/users" class="button red">Users</a>
+        <a href="/app/exercise/exercises" class="button red">Exercises</a>
+        <a href="/app/solution/solutions" class="button red">Solutions</a>
+    </nav>
 </div>

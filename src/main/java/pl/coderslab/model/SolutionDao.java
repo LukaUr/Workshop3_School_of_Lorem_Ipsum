@@ -6,7 +6,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class SolutionDao {
 
@@ -80,14 +82,14 @@ public class SolutionDao {
         }
     }
 
-    public Solution[] findAllSolutions() {
+    public List<Solution> findAllSolutions() {
         try (Connection connection = DBUtil.connect()) {
             PreparedStatement preS = connection.prepareStatement(FIND_ALL_SOLUTIONS_QUERY);
             ResultSet rs = preS.executeQuery();
-            Solution[] allSolutions = new Solution[0];
+            List<Solution> allSolutions = new ArrayList<>();
             while (rs.next()) {
                 Solution tmp = getSolutionData(rs);
-                allSolutions = addSolutionToArray(tmp, allSolutions);
+                allSolutions.add(tmp);
             }
             return allSolutions;
         } catch (SQLException e) {
