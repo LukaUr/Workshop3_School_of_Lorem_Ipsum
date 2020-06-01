@@ -10,11 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/app/exercise/delete")
-public class ExerciseDelete extends HttpServlet {
+@WebServlet("/app/exercise/edit")
+public class ExerciseUpdate extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int exerciseId = Integer.parseInt(request.getParameter("id"));
-        ExerciseDao.dao.deleteExercise(exerciseId);
+        Exercise exercise = ExerciseDao.dao.readExercise(exerciseId);
+        exercise.setTitle(request.getParameter("title"));
+        exercise.setDescription((request.getParameter("description")));
+        ExerciseDao.dao.updateExercise(exercise);
         response.sendRedirect("/app/exercise/exercises");
     }
 
@@ -22,7 +25,6 @@ public class ExerciseDelete extends HttpServlet {
         int exerciseId = Integer.parseInt(request.getParameter("id"));
         Exercise exercise = ExerciseDao.dao.readExercise(exerciseId);
         request.setAttribute("exercise", exercise);
-        System.out.println(exercise.getDescription());
-        getServletContext().getRequestDispatcher("/app/exercise/deleteExercise.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/app/exercise/editExercise.jsp").forward(request, response);
     }
 }

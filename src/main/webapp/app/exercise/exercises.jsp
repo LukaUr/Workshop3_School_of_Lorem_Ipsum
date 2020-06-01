@@ -28,7 +28,7 @@
                 </td>
                 <td><a href="/app/exercise/details?id=${exercise.id}" class="link">Details</a></td>
                 <td><a href="/app/exercise/delete?id=${exercise.id}" class="link">Delete</a></td>
-                <td><a href="/app/exercise/update?id=${exercise.id}" class="link">Edit</a></td>
+                <td><a href="/app/exercise/edit?id=${exercise.id}" class="link">Edit</a></td>
             </tr>
         </c:forEach>
     </table>

@@ -15,7 +15,7 @@
         exercise id: <span class="bold"> <c:out value="${exercise.id}"/></span><br>
         exercise title: <span class="bold"> <c:out value="${exercise.title}"/></span><br><br>
         exercise description:<br>
-        <span class="bold"> <c:out value="${exercise.description}"/></span><br>
+        <textarea cols="80" rows="10" contenteditable="false" disabled><c:out value="${exercise.description}"/></textarea><br>
     </p>
     <p><span class="bold">Are you sure?</span></p>
     <form method="post" action="/app/exercise/delete">

@@ -8,15 +8,12 @@
 <body>
 <%@include file="../../fragments/header.jsp" %>
 <div class="container">
-
-    <div class="distancer"></div>
     <p>You are changing data of this user</p>
     <p>
         user name: <span class="bold"> <c:out value="${user.name}"/></span><br>
         user id: <span class="bold"> <c:out value="${user.id}"/></span>
     </p>
     <hr>
-    <div class="distancer"></div>
     <form action="/app/user/edit" method="post">
         <input type="number" value="${user.id}" name="id" hidden>
         <p>Enter new user data: </p>
@@ -45,13 +42,10 @@
             <input type="submit" value="Edit" class="button grey">
         </label>
     </form>
-    <div class="distancer"></div>
     <hr>
     <p>
         <a href="javascript:history.back()" class="button grey">Back</a>
     </p>
-
-
 </div>
 <%@include file="../../fragments/footer.jsp" %>
 </body>
