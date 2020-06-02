@@ -6,15 +6,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AdmUtils {
-    public static int getNumber(Scanner scan) {
-        while (!scan.hasNextInt()) {
-            System.out.println("Choose a number");
-            scan.next();
-        }
-        int result = scan.nextInt();
-        scan.nextLine();
-        return result;
-    }
 
     public static String trimmer(String input, int maxLength) {
         if (input != null && input.length() > maxLength) {
@@ -72,7 +63,7 @@ public class AdmUtils {
 
     public static boolean checkSolutionId(int id, int userId) {
         Solution solution = SolutionDao.dao.readSolution(id);
-        if (solution != null && solution.getUserID() == userId) {
+        if (solution != null && solution.getUserId() == userId) {
             return true;
         }
         System.out.println("Work with Id = " + id + " not found.");

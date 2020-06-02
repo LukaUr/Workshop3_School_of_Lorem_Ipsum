@@ -8,14 +8,16 @@ public class Solution {
     private Date updated;
     private String description;
     private int exerciseId;
-    private int userID;
+    private int userId;
+    private String userName;
+    private String exerciseTitle;
 
-    public Solution(Date created, Date updated, String description, int exerciseId, int userID) {
+    public Solution(Date created, Date updated, String description, int exerciseId, int userId) {
         this.created = created;
         this.updated = updated;
         this.description = description;
         this.exerciseId = exerciseId;
-        this.userID = userID;
+        this.userId = userId;
     }
 
     public Solution() {
@@ -61,11 +63,27 @@ public class Solution {
         this.exerciseId = exerciseId;
     }
 
-    public int getUserID() {
-        return userID;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getExerciseTitle() {
+        return exerciseTitle;
+    }
+
+    public void setExerciseTitle(String exerciseTitle) {
+        this.exerciseTitle = exerciseTitle;
     }
 }

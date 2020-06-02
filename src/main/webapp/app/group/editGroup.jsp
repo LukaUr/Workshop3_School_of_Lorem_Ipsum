@@ -19,7 +19,7 @@
     <form action="/app/group/update" method="post">
         <input type="number" value="${group.id}" name="id" hidden>
         <label>Enter new name of the group: <br>
-            <input type="text" name="groupName" value="<c:out value="${group.name}"/>"/>
+            <input class="input" type="text" name="groupName" value="<c:out value="${group.name}"/>"/>
         </label>
         <br>
         <label>

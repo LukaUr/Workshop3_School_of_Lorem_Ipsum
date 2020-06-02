@@ -131,7 +131,7 @@ public class SolutionDao {
         p.setDate(1, s.getUpdated());
         p.setString(2, s.getDescription());
         p.setInt(3, s.getExerciseId());
-        p.setInt(4, s.getUserID());
+        p.setInt(4, s.getUserId());
         return p;
     }
 
@@ -142,7 +142,11 @@ public class SolutionDao {
         s.setUpdated(rs.getDate("updated"));
         s.setDescription(rs.getString("description"));
         s.setExerciseId(rs.getInt("exercise_id"));
-        s.setUserID(rs.getInt("user_id"));
+        s.setUserId(rs.getInt("user_id"));
+        User user = UserDao.dao.readUser(s.getUserId());
+        s.setUserName(user.getName());
+        Exercise exercise = ExerciseDao.dao.readExercise(s.getExerciseId());
+        s.setExerciseTitle(exercise.getTitle());
         return s;
     }
 

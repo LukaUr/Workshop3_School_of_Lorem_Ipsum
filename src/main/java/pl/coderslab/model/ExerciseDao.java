@@ -6,7 +6,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ExerciseDao {
 
@@ -80,17 +82,17 @@ public class ExerciseDao {
         }
     }
 
-    public Exercise[] findAllExercises() {
+    public List<Exercise> findAllExercises() {
         try (Connection connection = DBUtil.connect()) {
             PreparedStatement preS = connection.prepareStatement(FIND_ALL_EXERCISES_QUERY);
             ResultSet rs = preS.executeQuery();
-            Exercise[] allExercises = new Exercise[0];
+            List<Exercise> allExercises = new ArrayList<>();
             while (rs.next()) {
                 Exercise tmp = new Exercise();
                 tmp.setId(rs.getInt("id"));
                 tmp.setTitle(rs.getString("title"));
                 tmp.setDescription(rs.getString("description"));
-                allExercises = addExerciseToArray(tmp, allExercises);
+                allExercises.add(tmp);
             }
             return allExercises;
         } catch (SQLException e) {
