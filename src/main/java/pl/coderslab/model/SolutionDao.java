@@ -147,6 +147,7 @@ public class SolutionDao {
         s.setUserName(user.getName());
         Exercise exercise = ExerciseDao.dao.readExercise(s.getExerciseId());
         s.setExerciseTitle(exercise.getTitle());
+        s.setExerciseDescription(exercise.getDescription());
         return s;
     }
 

@@ -11,6 +11,7 @@ public class Solution {
     private int userId;
     private String userName;
     private String exerciseTitle;
+    private String exerciseDescription;
 
     public Solution(Date created, Date updated, String description, int exerciseId, int userId) {
         this.created = created;
@@ -85,5 +86,13 @@ public class Solution {
 
     public void setExerciseTitle(String exerciseTitle) {
         this.exerciseTitle = exerciseTitle;
+    }
+
+    public String getExerciseDescription() {
+        return exerciseDescription;
+    }
+
+    public void setExerciseDescription(String exerciseDescription) {
+        this.exerciseDescription = exerciseDescription;
     }
 }

@@ -37,7 +37,7 @@
                 <td><c:out value="${solution.userId}"/></td>
                 <td><a href="/app/solution/details?id=${solution.id}" class="link">Details</a></td>
                 <td><a href="/app/solution/delete?id=${solution.id}" class="link">Delete</a></td>
-                <td><a href="/app/solution/update?id=${solution.id}" class="link">Change name</a></td>
+                <td><a href="/app/solution/update?id=${solution.id}" class="link">Edit</a></td>
             </tr>
         </c:forEach>
     </table>
