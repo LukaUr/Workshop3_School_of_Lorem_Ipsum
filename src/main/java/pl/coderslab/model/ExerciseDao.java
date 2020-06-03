@@ -92,6 +92,8 @@ public class ExerciseDao {
                 tmp.setId(rs.getInt("id"));
                 tmp.setTitle(rs.getString("title"));
                 tmp.setDescription(rs.getString("description"));
+                int usagesCount = SolutionDao.dao.findAllByExerciseId(tmp.getId()).size();
+                tmp.setUsagesCount(usagesCount);
                 allExercises.add(tmp);
             }
             return allExercises;

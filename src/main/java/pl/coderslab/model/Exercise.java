@@ -4,6 +4,7 @@ public class Exercise {
     private int id;
     private String title;
     private String description;
+    private int usagesCount;
 
     public Exercise(String title, String description) {
         this.title = title;
@@ -35,5 +36,13 @@ public class Exercise {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getUsagesCount() {
+        return usagesCount;
+    }
+
+    public void setUsagesCount(int usagesCount) {
+        this.usagesCount = usagesCount;
     }
 }

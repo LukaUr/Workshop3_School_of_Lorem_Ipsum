@@ -16,6 +16,7 @@
             <th>No</th>
             <th>Title</th>
             <th>Description</th>
+            <th>Usages</th>
             <th>Id</th>
             <th colspan="3">Actions</th>
         </tr>
@@ -24,6 +25,7 @@
                 <td>${status.count}</td>
                 <td><c:out value="${exercise.title}"/></td>
                 <td><c:out value="${exercise.description}"/></td>
+                <td><c:out value="${exercise.usagesCount}"/></td>
                 <td><c:out value="${exercise.id}"/>
                 </td>
                 <td><a href="/app/exercise/details?id=${exercise.id}" class="link">Details</a></td>
