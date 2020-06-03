@@ -72,8 +72,8 @@ public class AdmUtils {
 
     public static boolean checkUserOnDelete(int id) {
         if (checkUserId(id)) {
-            Solution[] solutions = SolutionDao.dao.findAllByUserId(id);
-            if (solutions.length == 0) {
+            List<Solution> solutions = SolutionDao.dao.findAllByUserId(id);
+            if (solutions.size() == 0) {
                 return true;
             }
             System.out.println("Unable to delete user. Delete all his/her work first.");
@@ -83,8 +83,8 @@ public class AdmUtils {
 
     public static boolean checkExerciseOnDelete(int id) {
         if (checkExerciseId(id)) {
-            Solution[] solutions = SolutionDao.dao.findAllByExerciseId(id);
-            if (solutions.length == 0) {
+            List<Solution> solutions = SolutionDao.dao.findAllByExerciseId(id);
+            if (solutions.size() == 0) {
                 return true;
             }
             System.out.println("Unable to delete exercise. Delete all solutions of this exercise first.");

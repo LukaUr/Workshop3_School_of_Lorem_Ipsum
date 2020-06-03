@@ -98,27 +98,27 @@ public class SolutionDao {
         return null;
     }
 
-    public Solution[] findAllByUserId(int userId) {
+    public List<Solution> findAllByUserId(int userId) {
         return findAllBySomeValue(userId, FIND_ALL_SOLUTIONS_FROM_USER_QUERY);
     }
 
-    public Solution[] findAllByExerciseId(int id) {
+    public List<Solution> findAllByExerciseId(int id) {
         return findAllBySomeValue(id, FIND_ALL_SOLUTIONS_BY_EXERCISE_ID_QUERY);
     }
 
-    public Solution[] findUnsolvedByUserId(int userId) {
+    public List<Solution> findUnsolvedByUserId(int userId) {
         return findAllBySomeValue(userId, FIND_UNSOLVED_SOLUTIONS_FROM_USER_QUERY);
     }
 
-    private Solution[] findAllBySomeValue(int value, String query) {
+    private List<Solution> findAllBySomeValue(int value, String query) {
         try (Connection connection = DBUtil.connect()) {
             PreparedStatement preS = connection.prepareStatement(query);
             preS.setInt(1, value);
             ResultSet rs = preS.executeQuery();
-            Solution[] allSolutions = new Solution[0];
+            List<Solution> allSolutions = new ArrayList<>();
             while (rs.next()) {
                 Solution tmp = getSolutionData(rs);
-                allSolutions = addSolutionToArray(tmp, allSolutions);
+                allSolutions.add(tmp);
             }
             return allSolutions;
         } catch (SQLException e) {
