@@ -24,7 +24,7 @@
         <div class="distancer"></div>
     </c:if>
     <c:if test="${solutions.size() > 0}">
-        <p>Assigned exercises</p>
+        <p>Assigned exercises:</p>
         <table>
             <tr>
                 <th>No</th>
