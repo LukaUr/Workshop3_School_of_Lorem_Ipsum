@@ -13,7 +13,7 @@
     <hr>
     <br>
     <c:if test="${users.size() == 0}">
-        <p>No users to show</p>
+        <p>No users in this group</p>
     </c:if>
     <c:if test="${users.size() > 0}">
         <table>

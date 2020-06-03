@@ -22,7 +22,7 @@
             <th>Ex. Id</th>
             <th>User</th>
             <th>Us. Id</th>
-            <th colspan="3">Actions</th>
+            <th colspan="2">Actions</th>
         </tr>
         <c:forEach items="${solutions}" var="solution" varStatus="status">
             <tr>
@@ -37,7 +37,6 @@
                 <td><c:out value="${solution.userId}"/></td>
                 <td><a href="/app/solution/details?id=${solution.id}" class="link">Details</a></td>
                 <td><a href="/app/solution/delete?id=${solution.id}" class="link">Delete</a></td>
-                <td><a href="/app/solution/update?id=${solution.id}" class="link">Edit</a></td>
             </tr>
         </c:forEach>
     </table>

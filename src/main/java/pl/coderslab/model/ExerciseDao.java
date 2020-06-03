@@ -2,10 +2,8 @@ package pl.coderslab.model;
 
 import pl.coderslab.utils.DBUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javax.swing.*;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -77,7 +75,9 @@ public class ExerciseDao {
             PreparedStatement preS = connection.prepareStatement(DELETE_EXERCISE_QUERY);
             preS.setInt(1, exerciseId);
             preS.executeUpdate();
-        } catch (SQLException e) {
+        } catch (SQLIntegrityConstraintViolationException e){
+            JOptionPane.showMessageDialog(null, "Delete all usages of this exercise\n before deleting this exercise", "Exercise in use", JOptionPane.WARNING_MESSAGE);
+        } catch(SQLException e) {
             e.printStackTrace();
         }
     }

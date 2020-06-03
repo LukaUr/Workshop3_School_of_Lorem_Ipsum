@@ -9,19 +9,26 @@
 <%@include file="../../fragments/header.jsp" %>
 <div class="container">
     <h2><span class="lighter">User name:</span> <c:out value="${solution.userName}"/></h2>
-    <p>user id: <c:out value="${solution.userId}"/></p>
+    <p>
+        User id: <c:out value="${solution.userId}"/><br>
+        Solution id: <c:out value="${solution.id}"/>
+    </p>
     <hr>
     <br>
     <p>
         Exercise: <span class="bold"> <c:out value="${solution.exerciseTitle}"/></span><br>
-        exercise id: <c:out value="${solution.exerciseId}"/><br>
-        created: <c:out value="${solution.created}"/></p>
+        Exercise id: <c:out value="${solution.exerciseId}"/><br>
+        Created: <c:out value="${solution.created}"/></p>
     <p>Description:<br>
         <textarea cols="80" rows="10" contenteditable="false" disabled><c:out value="${solution.exerciseDescription}"/>
         </textarea>
     </p>
     <hr>
-    <p>Solution date: <c:out value="${solution.updated}"/></p>
+    <p>
+        Solution date: <c:out value="${solution.updated}"/>
+
+    </p>
+
         <p>Solution: <br>
         <textarea cols="80" rows="10" contenteditable="false" disabled><c:out value="${solution.description}"/>
         </textarea>

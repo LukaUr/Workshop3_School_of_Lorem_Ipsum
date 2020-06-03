@@ -95,6 +95,8 @@ public class UserDao {
             PreparedStatement preS = connection.prepareStatement(DELETE_USER_QUERY);
             preS.setInt(1, userId);
             preS.executeUpdate();
+        } catch (SQLIntegrityConstraintViolationException e){
+            JOptionPane.showMessageDialog(null, "Delete all exercises assigned to this user\n before deleting user", "User has assigned exercises", JOptionPane.WARNING_MESSAGE);
         } catch (SQLException e) {
             e.printStackTrace();
         }

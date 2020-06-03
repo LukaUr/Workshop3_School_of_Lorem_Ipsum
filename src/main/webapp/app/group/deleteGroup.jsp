@@ -20,8 +20,6 @@
         <input type="submit" class="button grey" value="Yes"/>
         <a href="javascript:history.back()" class="button grey">No</a>
     </form>
-
-
 </div>
 <%@include file="../../fragments/footer.jsp" %>
 </body>
