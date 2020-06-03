@@ -88,6 +88,8 @@ public class GroupDao {
                 Group tmp = new Group();
                 tmp.setId(rs.getInt("id"));
                 tmp.setName(rs.getString("name"));
+                int membersCount = UserDao.dao.findAllUsersByGroupId(tmp.getId()).size();
+                tmp.setMembersCount(membersCount);
                 allUsersGroups.add(tmp);
             }
             return allUsersGroups;

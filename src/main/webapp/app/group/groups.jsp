@@ -23,6 +23,7 @@
             <th>No</th>
             <th>Name</th>
             <th>Id</th>
+            <th>Members</th>
             <th colspan="3">Actions</th>
         </tr>
         <c:forEach items="${groups}" var="group" varStatus="status">
@@ -30,6 +31,7 @@
                 <td>${status.count}</td>
                 <td><c:out value="${group.name}"/></td>
                 <td><c:out value="${group.id}"/></td>
+                <td><c:out value="${group.membersCount}"/></td>
                 <td><a href="/app/group/details?id=${group.id}" class="link">Details</a></td>
                 <td><a href="/app/group/delete?id=${group.id}" class="link">Delete</a></td>
                 <td><a href="/app/group/update?id=${group.id}" class="link">Change name</a></td>

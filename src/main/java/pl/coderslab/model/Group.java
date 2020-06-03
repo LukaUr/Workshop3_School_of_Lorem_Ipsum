@@ -3,6 +3,7 @@ package pl.coderslab.model;
 public class Group {
     private int id;
     private String name;
+    private int membersCount;
 
     public Group() {
     }
@@ -27,4 +28,11 @@ public class Group {
         this.name = name;
     }
 
+    public int getMembersCount() {
+        return membersCount;
+    }
+
+    public void setMembersCount(int membersCount) {
+        this.membersCount = membersCount;
+    }
 }
