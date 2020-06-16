@@ -12,7 +12,7 @@
     <title>School - Main Page</title>
 </head>
 <body>
-<%@include file="/fragments/header.jsp" %>
+<%@include file="/fragments/header-main.jsp" %>
 <div class="container">
     <div class="distancer"></div>
     <p class="bold">Welcome to the School of Lorem Ipsum</p>

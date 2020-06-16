@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.net.http.HttpRequest;
 
-@WebFilter("/app/*")
+@WebFilter(urlPatterns = {"/app/*", "/teacher/*"})
 public class FilterAdminLogged implements Filter {
     public void destroy() {
     }

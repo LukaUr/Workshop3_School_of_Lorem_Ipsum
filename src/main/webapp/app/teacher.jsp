@@ -15,8 +15,16 @@
 <%@include file="../fragments/header.jsp" %>
 <div class="container">
     <div class="distancer"></div>
-    <p class="bold">Welcome to the School of Lorem Ipsum</p>
-    <p>You are logged as teacher aka admin.</p>
+    <p class="bold">Welcome to the School of Lorem Ipsum.</p>
+    <p>You are logged as a <span class="bold">Teacher</span> (aka Admin).</p>
+    <hr>
+    <nav>
+        <a href="/app/group/groups" class="box">Groups</a>
+        <a href="/app/user/users" class="box">Users</a>
+        <br>
+        <a href="/app/exercise/exercises" class="box">Exercises</a>
+        <a href="/app/solution/solutions" class="box">Solutions</a>
+    </nav>
     <hr>
     <p><a  class="button grey" href="/logoff">Log off</a></p>
 </div>

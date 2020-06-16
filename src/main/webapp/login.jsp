@@ -6,7 +6,7 @@
     <title>Log in</title>
 </head>
 <body>
-<%@include file="/fragments/header.jsp" %>
+<%@include file="/fragments/header-main.jsp" %>
 <div class="container">
     <div class="distancer"></div>
     <c:if test="${message != null}">

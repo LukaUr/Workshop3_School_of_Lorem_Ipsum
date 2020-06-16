@@ -171,6 +171,31 @@ h2 {
     font-weight: lighter;
 }
 
+.strong-message {
+    font-weight: bold;
+    background-color: var(--menu-soft-red);
+    color: var(--light-01);
+    padding: 5px 0;
+}
+
+.box {
+    width: 160px;
+    font-size: 16px;
+    margin: 6px 6px 0 0;
+    text-align: center;
+    padding: 20px 10px;
+    background-color: var(--light-02);
+    color: var(--dark-02);
+    border: var(--warm-grey) 1px solid;
+    transition: 0.1s;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+}
+.box:hover {
+    background-color: var(--white-warm);
+}
+
 .dropList, .input {
     width: 200px;
     height: 24px;
@@ -178,10 +203,4 @@ h2 {
     margin-bottom: 6px;
 }
 
-.strong-message {
-    font-weight: bold;
-    background-color: var(--menu-soft-red);
-    color: var(--light-01);
-    padding: 5px 0;
-}
 
