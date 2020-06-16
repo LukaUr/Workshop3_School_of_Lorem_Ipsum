@@ -16,7 +16,7 @@ public class FilterAdminLogged implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpSession session = request.getSession();
-        Object loggedAdmin = session.getAttribute("loggedAdmin");
+        Object loggedAdmin = session.getAttribute("loggedTeacher");
         if (loggedAdmin != null && (boolean) loggedAdmin) {
             chain.doFilter(req, resp);
         } else {
