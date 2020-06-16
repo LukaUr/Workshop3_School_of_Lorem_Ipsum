@@ -178,3 +178,10 @@ h2 {
     margin-bottom: 6px;
 }
 
+.strong-message {
+    font-weight: bold;
+    background-color: var(--menu-soft-red);
+    color: var(--light-01);
+    padding: 5px 0;
+}
+

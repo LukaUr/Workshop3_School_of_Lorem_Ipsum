@@ -15,8 +15,9 @@
 <%@include file="/fragments/header.jsp" %>
 <div class="container">
     <div class="distancer"></div>
-    <p>some content here...</p>
-    <div class="distancer"></div>
+    <p class="bold">Welcome to the School of Lorem Ipsum</p>
+    <p>Please log in...</p>
+    <p><a  class="button grey" href="/login">Log in</a></p>
 </div>
 <%@include file="fragments/footer.jsp" %>
 </body>
