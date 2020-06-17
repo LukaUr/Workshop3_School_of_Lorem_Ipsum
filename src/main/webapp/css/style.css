@@ -214,4 +214,9 @@ h2 {
     margin-bottom: 6px;
 }
 
+.styled-red {
+    color: var(--menu-dark-red);
+    font-weight: bold;
+}
+
 
