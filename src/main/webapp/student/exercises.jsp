@@ -15,30 +15,37 @@
 <%@include file="../fragments/header-student.jsp" %>
 <div class="container">
     <%@include file="../fragments/student.jsp" %>
-    <h2>Solutions</h2>
-    <table>
-        <tr>
-            <th>No</th>
-            <th>Assigned</th>
-            <th>Exercise</th>
-            <th>Solved</th>
-            <th>Your solution</th>
-            <th>Id</th>
-            <th colspan="2">Actions</th>
-        </tr>
-        <c:forEach items="${solutions}" var="solution" varStatus="status">
+
+    <c:if test="${empty solutions}">
+        <p>There are no exercises assigned to you so far.</p>
+        <div class="distancer"></div>
+    </c:if>
+    <c:if test="${solutions.size() > 0}">
+        <h2>Solutions</h2>
+        <table>
             <tr>
-                <td>${status.count}</td>
-                <td><c:out value="${solution.created}"/></td>
-                <td><c:out value="${solution.exerciseTitle}"/></td>
-                <td><c:out value="${solution.updated}"/></td>
-                <td><c:out value="${solution.description}"/></td>
-                <td><c:out value="${solution.id}"/></td>
-                <td><a href="/student/exerciseDetails?id=${solution.id}" class="link">Details</a></td>
-                <td><a href="/student/solve?id=${solution.id}" class="link">Solve/Edit</a></td>
+                <th>No</th>
+                <th>Assigned</th>
+                <th>Exercise</th>
+                <th>Solved</th>
+                <th>Your solution</th>
+                <th>Id</th>
+                <th colspan="2">Actions</th>
             </tr>
-        </c:forEach>
-    </table>
+            <c:forEach items="${solutions}" var="solution" varStatus="status">
+                <tr>
+                    <td>${status.count}</td>
+                    <td><c:out value="${solution.created}"/></td>
+                    <td><c:out value="${solution.exerciseTitle}"/></td>
+                    <td><c:out value="${solution.updated}"/></td>
+                    <td><c:out value="${solution.description}"/></td>
+                    <td><c:out value="${solution.id}"/></td>
+                    <td><a href="/student/exerciseDetails?id=${solution.id}" class="link">Details</a></td>
+                    <td><a href="/student/solve?id=${solution.id}" class="link">Solve/Edit</a></td>
+                </tr>
+            </c:forEach>
+        </table>
+    </c:if>
     <div>
         <p>
             <a href="javascript:history.back()" class="button grey">Back</a>

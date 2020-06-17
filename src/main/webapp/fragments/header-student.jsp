@@ -4,7 +4,7 @@
     <hr>
     <nav>
         <a href="/student/exercises" class="button red">Exercises</a>
-        <a href="/student/statistics" class="button red">Student</a>
+        <a href="/student/statistics" class="button red">Statistics</a>
         <a href="/logoff" class="button red">Log off</a>
     </nav>
 </div>
